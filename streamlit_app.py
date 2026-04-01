@@ -57,7 +57,7 @@ def target_encoded(val):
 
 y = y_raw.apply(target_encoded)
 
-with st.expander('Data preparation')
+with st.expander('Data preparation'):
    st.write('**Encoded input penguin(x)**')
    input_row  
    st.write('**Encoded y**')
