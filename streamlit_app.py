@@ -75,7 +75,13 @@ with st.expander('Data preparation'):
 
    df_prediction_proba= pd.DataFrame(prediction_proba)
    df_prediction_proba.columns= ['Adlie', 'Chinstrap', 'Gentoo']
-   prediction_proba                             
+   df_prediction_proba.rename(columns = {0: 'Adlie',
+                                         1: 'Chinstrap',
+                                         2: 'Gentoo'})
+   df_prediction_proba
+  
+
+                                      
 
 
 
