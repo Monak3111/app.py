@@ -50,6 +50,7 @@ def target_encoded(val):
   return target_mapper[val]
 
 y = y_raw.apply(target_encoded)
+y
 
 with st.expander('Input features'):
     st.write('**Input penguin**')
