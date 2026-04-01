@@ -21,31 +21,34 @@ with st.expander('Data visualization'):
 
 with st.sidebar:
   st.header('Input Features')
-island = st.selectbox('Island', ('Biscoe', 'Dream', 'Torgersen'))
-gender=  st.selectbox('Gender', ('male', 'female'))
-bill_length_mm= st.slider('Bill length (mm)', 32.1, 59.6, 43.9)
-bill_depth_mm= st.slider('Bill depth (mm)', 13.1, 21.5, 17.2)
-flipper_length_mm= st.slider('Flipper length (mm)', 172.8, 231.0, 201.0)
-body_mass_g= st.slider('Body mass (g)', 2700.0, 6300.0, 4207.0)
+  island = st.selectbox('Island', ('Biscoe', 'Dream', 'Torgersen'))
+  gender=  st.selectbox('Gender', ('male', 'female'))
+  bill_length_mm= st.slider('Bill length (mm)', 32.1, 59.6, 43.9)
+  bill_depth_mm= st.slider('Bill depth (mm)', 13.1, 21.5, 17.2)
+  flipper_length_mm= st.slider('Flipper length (mm)', 172.8, 231.0, 201.0)
+  body_mass_g= st.slider('Body mass (g)', 2700.0, 6300.0, 4207.0)
 
-data= {'island': island,
+ data= {'island': island,
        'bill_length_mm': bill_length_mm,
        'bill_depth_mm': bill_depth_mm,
        'body_mass_g': body_mass_g,
        'sex': gender}
-input_df=  pd.DataFrame(data, index=[0])
-input_penguins= pd.concat([input_df, x], axis=0)
+ input_df=  pd.DataFrame(data, index=[0])
+ input_penguins= pd.concat([input_df, x], axis=0)
+
+ encode= ['island', 'sex']
+ df_penguins = pd.get_dummies(input_penguins, prefix= encode)
+ input_row= df_penguins[:1] 
 
 with st.expander('Input features'):
   st.write('**Input penguin**')
   input_df
   st.write('**Combined penguins data**')
   input_penguins
+  st.write('Encoded input penguin')
+  input_row
 
-  encode= ['island', 'sex']
-  df_penguins = pd.get_dummies(input_penguins, prefix= encode)
-  df_penguins[:1] 
-
+  
 
 
 
