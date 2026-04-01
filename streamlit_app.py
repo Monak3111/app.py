@@ -28,25 +28,30 @@ with st.sidebar:
   flipper_length_mm= st.slider('Flipper length (mm)', 172.8, 231.0, 201.0)
   body_mass_g= st.slider('Body mass (g)', 2700.0, 6300.0, 4207.0)
 
- data= {'island': island,
-       'bill_length_mm': bill_length_mm,
-       'bill_depth_mm': bill_depth_mm,
-       'body_mass_g': body_mass_g,
-       'sex': gender}
- input_df=  pd.DataFrame(data, index=[0])
- input_penguins= pd.concat([input_df, x], axis=0)
+data = {
+    'island': island,
+    'bill_length_mm': bill_length_mm,
+    'bill_depth_mm': bill_depth_mm,
+    'body_mass_g': body_mass_g,
+    'sex': gender
+}
 
- encode= ['island', 'sex']
- df_penguins = pd.get_dummies(input_penguins, prefix= encode)
- input_row= df_penguins[:1] 
+input_df = pd.DataFrame(data, index=[0])
+input_penguins = pd.concat([input_df, x], axis=0)
+
+encode = ['island', 'sex']
+df_penguins = pd.get_dummies(input_penguins, prefix=encode)
+input_row = df_penguins[:1]
 
 with st.expander('Input features'):
-  st.write('**Input penguin**')
-  input_df
-  st.write('**Combined penguins data**')
-  input_penguins
-  st.write('Encoded input penguin')
-  input_row
+    st.write('**Input penguin**')
+    st.write(input_df)
+
+    st.write('**Combined penguins data**')
+    st.write(input_penguins)
+
+    st.write('Encoded input penguin')
+    st.write(input_row)
 
   
 
